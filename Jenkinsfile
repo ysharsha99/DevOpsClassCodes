@@ -1,16 +1,16 @@
 
 pipeline{
     tools{
-        jdk 'myjava'
-        maven 'mymaven'
+        jdk 'Myjava'
+        maven 'Mymaven'
     }
-	agent any
+      agent any
       stages{
            stage('Checkout'){
 	    
                steps{
 		 echo 'cloning..'
-                 git 'https://github.com/ysharsha99/DevOpsClassCodes.git'
+                 git 'https://github.com/rajeshgit2022/DevOpsClassCodes.git'
               }
           }
           stage('Compile'){
@@ -39,13 +39,6 @@ pipeline{
                    junit 'target/surefire-reports/*.xml'
                }
            }	
-          }
-           stage('MetricCheck'){
-              
-              steps{
-                  sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
-              }
-              
           }
           stage('Package'){
 		  
